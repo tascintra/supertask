@@ -1,0 +1,6 @@
+next-env.d.ts
+dist
+.next
+.output
+package.json
+yarn.lock
