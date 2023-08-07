@@ -22,6 +22,12 @@ module.exports = {
           700: '#111517',
         },
       },
+
+      boxShadow: {
+        component: '0px 0px 4px 0px rgba(0, 0, 0, 0.10)',
+        focused: '0px 0px 8px 0px rgba(0, 0, 0, 0.20)',
+        'focused-dark': '0px 0px 2px 2px rgba(123, 123, 123, 0.10)',
+      },
     },
   },
   plugins: [],
