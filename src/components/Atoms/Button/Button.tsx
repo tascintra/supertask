@@ -1,7 +1,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const button = tv({
-  base: 'w-full rounded-full py-1 text-base font-medium text-neutral-50 shadow transition dark:shadow-neutral-600',
+  base: 'w-full rounded-full py-1 text-base font-medium text-neutral-50 shadow-component transition dark:shadow-neutral-900',
   variants: {
     color: {
       default:
