@@ -1,7 +1,5 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
-type ButtonProps = VariantProps<typeof button> & React.ComponentProps<'button'>
-
 const button = tv({
   base: 'w-full rounded-full py-1 text-base font-medium text-neutral-50 shadow transition dark:shadow-neutral-600',
   variants: {
@@ -18,6 +16,8 @@ const button = tv({
   },
   defaultVariants: { color: 'default' },
 })
+
+type ButtonProps = VariantProps<typeof button> & React.ComponentProps<'button'>
 
 export const Button = ({ color, className, ...props }: ButtonProps) => {
   return <button {...props} className={button({ color, className })} />

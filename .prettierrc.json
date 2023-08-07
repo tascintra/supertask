@@ -1,6 +1,7 @@
 {
-  "semi": false,
-  "singleQuote": true,
   "plugins": ["prettier-plugin-tailwindcss"],
-  "pluginSearchDirs": false
+  "tailwindFunctions": ["clsx", "tv"],
+  "pluginSearchDirs": false,
+  "semi": false,
+  "singleQuote": true
 }
