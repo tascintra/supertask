@@ -12,13 +12,12 @@ type TaskCardProps = VariantProps<typeof card> &
     progress: number
   }
 
-// TODO: adjust circle progress bar when height increase
-
 export const TaskCard = ({
   className,
   title,
   priority,
   progress,
+  onClick,
 }: TaskCardProps) => {
   const priorityColors = {
     high: '#ef4444',
@@ -26,16 +25,20 @@ export const TaskCard = ({
     low: '#22c55e',
   }
 
-  const radial = `bg-[radial-gradient(closest-side,_white_79%,_transparent_80%_100%),_conic-gradient(from_0deg_at_50%_50%,_${priorityColors[priority]}_${progress}%,_pink_0)]`
+  const percentage = `${progress}%`
 
   return (
-    <div className={card({ className })}>
+    <div className={card({ className })} onClick={onClick}>
       <div
-        style={{
-          backgroundImage: `radial-gradient(closest-side, white 79%, transparent 80% 100%), conic-gradient(${priorityColors[priority]} ${progress}%, ${priorityColors[priority]}80 0)`,
-        }}
+        style={
+          {
+            '--percent': percentage,
+            '--color': priorityColors[priority],
+            '--transparency': `${priorityColors[priority]}80`,
+          } as React.CSSProperties
+        }
         className={
-          'flex h-14 min-w-[56px] items-center justify-center rounded-full'
+          'flex h-14 min-w-[56px] items-center justify-center rounded-full bg-[radial-gradient(closest-side,_white_79%,_transparent_80%_100%),_conic-gradient(from_0deg_at_50%_50%,_var(--color)_var(--percent),_var(--transparency)_0)] dark:bg-[radial-gradient(closest-side,_#17181C_79%,_transparent_80%_100%),_conic-gradient(from_0deg_at_50%_50%,_var(--color)_var(--percent),_var(--transparency)_0)]'
         }
       >
         <p className="text-sm font-medium leading-none dark:text-neutral-200">
