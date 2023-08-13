@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { tv, type VariantProps } from 'tailwind-variants'
+import { Subtask } from '@/types'
 
 const card = tv({
   base: 'flex w-full cursor-pointer items-center gap-4 rounded-3xl border border-neutral-200 bg-white px-5 py-3 text-neutral-900 shadow-component transition hover:brightness-95 dark:border-dark-400 dark:bg-dark-600 dark:shadow-neutral-900 hover:dark:brightness-125',
@@ -10,6 +11,7 @@ type TaskCardProps = VariantProps<typeof card> &
     title?: string
     priority: 'high' | 'medium' | 'low'
     progress: number
+    subtasks?: Subtask[]
   }
 
 export const TaskCard = ({
@@ -17,6 +19,7 @@ export const TaskCard = ({
   title,
   priority,
   progress,
+  subtasks,
   onClick,
 }: TaskCardProps) => {
   const priorityColors = {
@@ -47,10 +50,19 @@ export const TaskCard = ({
         <progress value={progress} max={100} className="hidden h-0 w-0" />
       </div>
       <div className="flex flex-col gap-1">
-        <p className="mt-2 text-base font-medium text-neutral-900 dark:text-neutral-200">
+        <p
+          className={clsx(
+            { 'mt-2': subtasks },
+            'text-base font-medium text-neutral-900 dark:text-neutral-200',
+          )}
+        >
           {title}
         </p>
-        <p className="text-xs font-medium text-neutral-400">3 tasks</p>
+        {subtasks && (
+          <p className="text-xs font-medium text-neutral-400">
+            {subtasks.length} {subtasks.length === 1 ? 'task' : 'tasks'}
+          </p>
+        )}
       </div>
       <div
         className={clsx(
