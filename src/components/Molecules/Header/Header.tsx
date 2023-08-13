@@ -8,6 +8,7 @@ export const Header = () => {
         src={JohnAvatar}
         alt="John avatar"
         className="inset-1 rounded-full ring-1 ring-primary-900"
+        priority={true}
       />
       <div>
         <h2 className="text-2xl">
