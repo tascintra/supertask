@@ -14,6 +14,8 @@ let tasks: Tasks[] = [
         title: 'UI Design',
       },
     ],
+    description:
+      "First I have to animate the logo and later prototyping my design. It's very important.",
   },
   {
     id: '2',
@@ -21,6 +23,7 @@ let tasks: Tasks[] = [
     title: "View candidate's resumes",
     priority: 'high',
     progress: 50,
+    description: 'Check the hr email for the candidates',
   },
   {
     id: '3',
@@ -42,6 +45,7 @@ let tasks: Tasks[] = [
     title: 'Study Next.js Routing',
     priority: 'medium',
     progress: 50,
+    description: 'Get video examples',
   },
   {
     id: '5',
@@ -56,6 +60,7 @@ let tasks: Tasks[] = [
         title: 'Todo App',
       },
     ],
+    description: 'Create app structure.',
   },
   {
     id: '6',
@@ -83,6 +88,7 @@ export const updateTask = (
   priority: 'high' | 'medium' | 'low',
   progress: number,
   subtasks: Subtask[],
+  description: string,
 ) => {
   const task = tasks.find((task) => task.id === id)
 
@@ -92,6 +98,7 @@ export const updateTask = (
     task.priority = priority
     task.progress = progress
     task.subtasks = subtasks
+    task.description = description
   } else throw new Error('Task not found')
 }
 

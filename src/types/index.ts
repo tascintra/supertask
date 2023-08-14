@@ -10,4 +10,5 @@ export interface Tasks extends TaskBase {
   priority: 'high' | 'medium' | 'low'
   progress: number
   subtasks?: Subtask[]
+  description?: string
 }

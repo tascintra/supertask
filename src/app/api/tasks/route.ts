@@ -19,7 +19,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const { title, isCompleted, priority, subtasks } = await request.json()
+  const { title, isCompleted, priority, subtasks, description } = await request.json()
   try {
     const task: Tasks = {
       id: Date.now().toString(),
@@ -32,6 +32,7 @@ export async function POST(request: Request) {
         isCompleted: false,
         title: subtaskTitle,
       })),
+      description,
     }
     addTask(task)
     return NextResponse.json({ message: 'OK', task }, { status: 201 })
