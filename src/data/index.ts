@@ -3,11 +3,12 @@ import { Subtask, Tasks } from '@/types'
 let tasks: Tasks[] = [
   {
     id: '1',
-    isCompleted: false,
     title: 'UI/UX App Design',
+    dueDate: '2022-01-01',
+    isCompleted: false,
     priority: 'high',
     progress: 75,
-    subtasks: [
+    subTasks: [
       {
         id: '1',
         isCompleted: false,
@@ -19,19 +20,19 @@ let tasks: Tasks[] = [
   },
   {
     id: '2',
-    isCompleted: false,
     title: "View candidate's resumes",
+    isCompleted: false,
     priority: 'high',
     progress: 50,
     description: 'Check the hr email for the candidates',
   },
   {
     id: '3',
-    isCompleted: false,
     title: 'Football Cup training Drybling',
+    isCompleted: false,
     priority: 'low',
     progress: 25,
-    subtasks: [
+    subTasks: [
       {
         id: '1',
         isCompleted: false,
@@ -41,19 +42,20 @@ let tasks: Tasks[] = [
   },
   {
     id: '4',
-    isCompleted: false,
     title: 'Study Next.js Routing',
+    dueDate: '2022-06-01',
+    isCompleted: false,
     priority: 'medium',
     progress: 50,
     description: 'Get video examples',
   },
   {
     id: '5',
-    isCompleted: false,
     title: 'Build Todo App',
+    isCompleted: false,
     priority: 'high',
     progress: 25,
-    subtasks: [
+    subTasks: [
       {
         id: '1',
         isCompleted: false,
@@ -64,8 +66,8 @@ let tasks: Tasks[] = [
   },
   {
     id: '6',
-    isCompleted: false,
     title: 'Call Mark to define project',
+    isCompleted: false,
     priority: 'medium',
     progress: 0,
   },
@@ -84,20 +86,22 @@ export const deleteTask = (id: string) => {
 export const updateTask = (
   id: string,
   title: string,
+  dueDate: string,
   isCompleted: boolean,
   priority: 'high' | 'medium' | 'low',
   progress: number,
-  subtasks: Subtask[],
+  subTasks: Subtask[],
   description: string,
 ) => {
   const task = tasks.find((task) => task.id === id)
 
   if (task) {
     task.title = title
+    task.dueDate = dueDate
     task.isCompleted = isCompleted
     task.priority = priority
     task.progress = progress
-    task.subtasks = subtasks
+    task.subTasks = subTasks
     task.description = description
   } else throw new Error('Task not found')
 }

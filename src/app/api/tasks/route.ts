@@ -19,15 +19,17 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const { title, isCompleted, priority, subtasks, description } = await request.json()
+  const { title, dueDate, priority, subTasks, description } =
+    await request.json()
   try {
     const task: Tasks = {
       id: Date.now().toString(),
       title,
+      dueDate,
       isCompleted: false,
       priority,
       progress: 0,
-      subtasks: subtasks.map((subtaskTitle: string, index: number) => ({
+      subTasks: subTasks.map((subtaskTitle: string, index: number) => ({
         id: Date.now().toString() + index,
         isCompleted: false,
         title: subtaskTitle,

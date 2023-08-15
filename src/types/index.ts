@@ -7,8 +7,13 @@ export interface TaskBase {
 export type Subtask = TaskBase
 
 export interface Tasks extends TaskBase {
+  dueDate?: string
   priority: 'high' | 'medium' | 'low'
   progress: number
-  subtasks?: Subtask[]
+  subTasks?: Subtask[]
   description?: string
+}
+
+export interface PageProps {
+  params: { action: string }
 }

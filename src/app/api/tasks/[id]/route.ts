@@ -22,16 +22,25 @@ export async function PUT(
   { params }: { params: { id: string } },
 ) {
   try {
-    const { title, isCompleted, priority, progress, subtasks, description } = await request.json()
+    const {
+      title,
+      dueDate,
+      isCompleted,
+      priority,
+      progress,
+      subTasks,
+      description,
+    } = await request.json()
     const id = params.id
     updateTask(
       id,
       title,
+      dueDate,
       isCompleted,
       priority,
       progress,
-      subtasks,
-      description
+      subTasks,
+      description,
     )
     return NextResponse.json({ message: 'OK' }, { status: 200 })
   } catch (error) {
