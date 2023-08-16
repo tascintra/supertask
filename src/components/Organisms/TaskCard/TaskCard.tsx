@@ -11,7 +11,7 @@ type TaskCardProps = VariantProps<typeof card> &
     title?: string
     priority: 'high' | 'medium' | 'low'
     progress: number
-    subtasks?: Subtask[]
+    subTasks?: Subtask[]
   }
 
 export const TaskCard = ({
@@ -19,7 +19,7 @@ export const TaskCard = ({
   title,
   priority,
   progress,
-  subtasks,
+  subTasks,
   onClick,
 }: TaskCardProps) => {
   const priorityColors = {
@@ -52,15 +52,15 @@ export const TaskCard = ({
       <div className="flex flex-col gap-1">
         <p
           className={clsx(
-            { 'mt-2': subtasks },
+            { 'mt-2': subTasks },
             'text-base font-medium text-neutral-900 dark:text-neutral-200',
           )}
         >
           {title}
         </p>
-        {subtasks && (
+        {subTasks && (
           <p className="text-xs font-medium text-neutral-400">
-            {subtasks.length} {subtasks.length === 1 ? 'task' : 'tasks'}
+            {subTasks.length} {subTasks.length === 1 ? 'task' : 'tasks'}
           </p>
         )}
       </div>
