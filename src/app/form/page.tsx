@@ -12,6 +12,8 @@ interface Subtasks {
 interface DataType {
   title: string
   dueDate: string
+  isCompleted: boolean
+  progress: number
   priority: 'high' | 'medium' | 'low'
   subTasks?: Subtasks[]
   description?: string
@@ -39,7 +41,20 @@ export default function Form() {
   }
 
   const handleFormSubmit = (data: DataType) => {
-    console.log(fields)
+    const totalSubTasks = data.subTasks?.length || 0
+    let completedSubTasks = 0
+    if (data.subTasks?.length) {
+      data.subTasks.forEach((subTask) => {
+        if (subTask.isCompleted) {
+          completedSubTasks++
+        }
+      })
+      data.isCompleted = completedSubTasks === totalSubTasks
+      data.progress = Number(((completedSubTasks / totalSubTasks) * 100).toFixed())
+    } else {
+      data.isCompleted = false
+      data.progress = 0
+    }
     console.log('data', data)
     axios.post('/api/tasks', data)
   }
