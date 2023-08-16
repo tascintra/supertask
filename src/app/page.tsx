@@ -22,23 +22,23 @@ export default function Home() {
   return (
     <>
       <Modal showModal={showModal} />
-      <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col justify-between divide-y divide-neutral-200 rounded-3xl border-zinc-200 sm:my-20 sm:border sm:shadow-sm">
+      <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col justify-between divide-y divide-neutral-200 rounded-3xl border-zinc-200 dark:divide-dark-300 sm:my-20 sm:border sm:shadow-sm">
         <Header />
         <section className="mb-auto flex h-full w-full flex-col items-center gap-3 p-5">
           <div className="flex w-full items-center justify-between">
             <p className="text-xl font-semibold">Tasks list</p>
-            <Button color="icon" className="py-2">
+            <Button color="icon">
               <ArrowUpDown size={16} strokeWidth={3} />
             </Button>
           </div>
           <div className="mb-auto flex w-full flex-col gap-4">
-            {tasks.map(({ id, title, priority, progress, subtasks }) => (
+            {tasks.map(({ id, title, priority, progress, subTasks }) => (
               <TaskCard
                 key={id}
                 title={title}
                 progress={progress}
                 priority={priority}
-                subtasks={subtasks}
+                subTasks={subTasks}
                 onClick={() => setShowModal(true)}
               />
             ))}
