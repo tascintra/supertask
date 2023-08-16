@@ -11,7 +11,7 @@ const button = tv({
       critical: 'bg-red-500 hover:bg-red-400',
       attention: 'bg-amber-400 hover:bg-amber-500',
       success: 'bg-green-500 hover:bg-green-400',
-      icon: 'flex max-w-[40px] justify-center border border-neutral-900 bg-neutral-800 hover:bg-neutral-900',
+      icon: 'flex max-w-[40px] py-2 justify-center border border-neutral-900 bg-neutral-800 hover:bg-neutral-900',
     },
   },
   defaultVariants: { color: 'default' },
