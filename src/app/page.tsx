@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import { Tasks } from '@/types'
 import { ArrowUpDown } from 'lucide-react'
@@ -10,6 +11,7 @@ import { Modal, TaskCard } from '@/components/Organisms'
 export default function Home() {
   const [showModal, setShowModal] = useState(false)
   const [tasks, setTasks] = useState<Tasks[]>([])
+  const router = useRouter()
 
   function getTasks() {
     axios.get('/api/tasks').then(({ data: json }) => setTasks(json))
@@ -44,7 +46,12 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <Button className="mb-5 max-w-[232px] self-center">Create task</Button>
+        <Button
+          onClick={() => router.push('/task/create')}
+          className="mb-5 max-w-[232px] self-center"
+        >
+          Create task
+        </Button>
       </main>
     </>
   )

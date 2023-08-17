@@ -1,6 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { ChevronLeft, X } from 'lucide-react'
@@ -16,6 +17,7 @@ export default function Page({ params }: PageProps) {
     control,
     name: 'subTasks',
   })
+  const router = useRouter()
 
   const handleSubTasks = () => {
     subTaskName.current?.value &&
@@ -47,6 +49,7 @@ export default function Page({ params }: PageProps) {
     }
     console.log('data', data)
     axios.post('/api/tasks', data)
+    router.push('/')
   }
 
   return (
