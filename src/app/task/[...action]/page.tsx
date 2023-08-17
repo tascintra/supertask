@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
@@ -12,12 +12,34 @@ import { Checkbox, Input, Radio, Textarea } from '@/components/Molecules'
 export default function Page({ params }: PageProps) {
   const subTaskName = useRef<HTMLInputElement>(null)
   const subTaskCompleted = useRef<HTMLInputElement>(null)
-  const { register, control, handleSubmit } = useForm<Tasks>()
+  const { register, control, setValue, handleSubmit } = useForm<Tasks>()
   const { fields, append, update, remove } = useFieldArray({
     control,
     name: 'subTasks',
   })
   const router = useRouter()
+
+  const setTaskData = useCallback(
+    (data: Tasks) => {
+      setValue('title', data.title)
+      setValue('dueDate', data.dueDate)
+      setValue('priority', data.priority)
+      setValue('subTasks', data.subTasks)
+      setValue('description', data.description)
+    },
+    [setValue],
+  )
+
+  function getTaskById(id: string) {
+    axios.get(`/api/tasks/${id}`).then(({ data: { task } }) => {
+      setTaskData(task)
+    })
+  }
+
+  useEffect(() => {
+    params.action.includes('edit') &&
+      getTaskById(params.action.slice(-1).toString())
+  })
 
   const handleSubTasks = () => {
     subTaskName.current?.value &&
