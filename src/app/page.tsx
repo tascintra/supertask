@@ -31,16 +31,19 @@ export default function Home() {
           </Button>
         </div>
         <div className="mb-auto flex w-full flex-col gap-4">
-          {tasks.map(({ id, title, priority, progress, subTasks }) => (
-            <TaskCard
-              key={id}
-              title={title}
-              progress={progress}
-              priority={priority}
-              subTasks={subTasks}
-              onClick={() => router.push(`/task/edit/${id}`)}
-            />
-          ))}
+          {tasks.map(
+            ({ id, title, priority, progress, subTasks, isCompleted }) => (
+              <TaskCard
+                key={id}
+                title={title}
+                progress={progress}
+                priority={priority}
+                subTasks={subTasks}
+                isCompleted={isCompleted}
+                onClick={() => router.push(`/task/edit/${id}`)}
+              />
+            ),
+          )}
         </div>
       </section>
       <Button
