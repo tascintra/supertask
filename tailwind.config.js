@@ -28,13 +28,6 @@ module.exports = {
         focused: '0px 0px 8px 0px rgba(0, 0, 0, 0.20)',
         'focused-dark': '0px 0px 2px 2px rgba(123, 123, 123, 0.10)',
       },
-
-      backgroundImage: {
-        'gradient-radial':
-          'radial-gradient(closest-side, white 79%, transparent 80% 100%), conic-gradient(#ef4444 75%, #EF444480 0)',
-        'gradient-radial-dark':
-          'radial-gradient(closest-side, #17181C 79%, transparent 80% 100%), conic-gradient(#ef4444 75%, #EF444480 0)',
-      },
     },
   },
   plugins: [],

@@ -53,7 +53,7 @@ export default function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col gap-5 divide-y divide-neutral-200 rounded-3xl border-zinc-200 py-8 dark:divide-dark-300 sm:my-20 sm:border sm:shadow-sm">
+    <main className="mx-auto flex h-screen w-full max-w-2xl flex-col gap-5 divide-y divide-neutral-200 rounded-3xl border-zinc-200 py-8 dark:divide-dark-300 sm:my-20 sm:border sm:shadow-sm md:h-fit">
       <header className="px-5">
         <Link href="/" className="inline-block">
           <ChevronLeft
@@ -69,7 +69,7 @@ export default function Page({ params }: PageProps) {
       <section className="h-full px-5">
         <form
           onSubmit={handleSubmit(handleFormSubmit)}
-          className="mt-5 flex flex-col gap-5"
+          className="mt-5 flex h-full flex-col gap-5 md:h-fit"
         >
           <Input
             {...register('title')}
@@ -152,7 +152,7 @@ export default function Page({ params }: PageProps) {
           <Button
             type="submit"
             color="confirm"
-            className="mx-auto mt-7 max-w-[224px]"
+            className="mx-auto mb-5 mt-auto max-w-[224px] md:mt-7"
           >
             {params.action === 'create' && 'Add task'}
             {params.action === 'edit' && 'Edit task'}
