@@ -1,6 +1,7 @@
 'use client'
-import Link from 'next/link'
 import { useRef } from 'react'
+import Link from 'next/link'
+import axios from 'axios'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { ChevronLeft, X } from 'lucide-react'
 import { PageProps, Tasks } from '@/types'
@@ -16,10 +17,6 @@ export default function Page({ params }: PageProps) {
     name: 'subTasks',
   })
 
-  const formSubmit = (data: Tasks) => {
-    console.log(data)
-  }
-
   const handleSubTasks = () => {
     subTaskName.current?.value &&
       append({
@@ -29,6 +26,27 @@ export default function Page({ params }: PageProps) {
       })
     subTaskName.current && (subTaskName.current.value = '')
     subTaskName.current?.focus()
+  }
+
+  const handleFormSubmit = (data: Tasks) => {
+    const totalSubTasks = data.subTasks?.length || 0
+    let completedSubTasks = 0
+    if (data.subTasks?.length) {
+      data.subTasks.forEach((subTask) => {
+        if (subTask.isCompleted) {
+          completedSubTasks++
+        }
+      })
+      data.isCompleted = completedSubTasks === totalSubTasks
+      data.progress = Number(
+        ((completedSubTasks / totalSubTasks) * 100).toFixed(),
+      )
+    } else {
+      data.isCompleted = false
+      data.progress = 0
+    }
+    console.log('data', data)
+    axios.post('/api/tasks', data)
   }
 
   return (
@@ -47,7 +65,7 @@ export default function Page({ params }: PageProps) {
       </header>
       <section className="h-full px-5">
         <form
-          onSubmit={handleSubmit(formSubmit)}
+          onSubmit={handleSubmit(handleFormSubmit)}
           className="mt-5 flex flex-col gap-5"
         >
           <Input
@@ -102,7 +120,7 @@ export default function Page({ params }: PageProps) {
               {fields.map((f, index) => (
                 <li
                   key={f.id}
-                  className="flex w-full items-center gap-1 px-4 py-2 hover:bg-neutral-100 dark:shadow-neutral-900 dark:hover:bg-dark-500"
+                  className="flex w-full items-center gap-1 px-4 py-2 transition hover:bg-neutral-100 dark:shadow-neutral-900 dark:hover:bg-dark-500"
                 >
                   <Checkbox
                     cbLabel={f.title}
