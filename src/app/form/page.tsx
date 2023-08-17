@@ -50,7 +50,9 @@ export default function Form() {
         }
       })
       data.isCompleted = completedSubTasks === totalSubTasks
-      data.progress = Number(((completedSubTasks / totalSubTasks) * 100).toFixed())
+      data.progress = Number(
+        ((completedSubTasks / totalSubTasks) * 100).toFixed(),
+      )
     } else {
       data.isCompleted = false
       data.progress = 0
@@ -141,7 +143,7 @@ export default function Form() {
                 <button
                   onClick={() => remove(index)}
                   type="button"
-                  className="ml-auto text-xs font-semibold leading-none text-red-500 p-1"
+                  className="ml-auto p-1 text-xs font-semibold leading-none text-red-500"
                 >
                   x
                 </button>
