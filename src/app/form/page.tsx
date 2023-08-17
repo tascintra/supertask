@@ -5,7 +5,7 @@ import { useFieldArray, useForm } from 'react-hook-form'
 
 interface Subtasks {
   id: string
-  subTask: string
+  title: string
   isCompleted: boolean
 }
 
@@ -33,7 +33,7 @@ export default function Form() {
     subTaskName.current?.value &&
       append({
         id: Date.now().toString(),
-        subTask: subTaskName.current.value,
+        title: subTaskName.current.value,
         isCompleted: false,
       })
     subTaskName.current && (subTaskName.current.value = '')
@@ -132,14 +132,14 @@ export default function Form() {
                 <input
                   type="checkbox"
                   checked={f.isCompleted}
-                  name={f.subTask}
-                  id={f.subTask}
+                  name={f.title}
+                  id={f.title}
                   ref={subTaskCompleted}
                   onChange={({ target }) => {
                     update(index, { ...f, isCompleted: target.checked })
                   }}
                 />
-                <label htmlFor={f.subTask}>{f.subTask}</label>
+                <label htmlFor={f.title}>{f.title}</label>
                 <button
                   onClick={() => remove(index)}
                   type="button"
