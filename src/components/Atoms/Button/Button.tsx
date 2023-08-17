@@ -11,9 +11,17 @@ const button = tv({
       critical: 'bg-red-500 hover:bg-red-400',
       attention: 'bg-amber-400 hover:bg-amber-500',
       success: 'bg-green-500 hover:bg-green-400',
-      icon: 'flex max-w-[40px] py-2 justify-center border border-neutral-900 bg-neutral-800 hover:bg-neutral-900',
+      icon: 'flex max-w-[40px] justify-center border border-neutral-900 bg-neutral-800 py-2 hover:bg-neutral-900',
+      iconSm:
+        'flex max-h-[16px] max-w-[16px] items-center justify-center hover:bg-neutral-200 dark:hover:bg-dark-300',
     },
   },
+  compoundVariants: [
+    {
+      color: 'iconSm',
+      className: 'rounded text-current shadow-none',
+    },
+  ],
   defaultVariants: { color: 'default' },
 })
 
