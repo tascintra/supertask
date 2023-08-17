@@ -5,7 +5,7 @@ import { useFieldArray, useForm } from 'react-hook-form'
 import { ChevronLeft, X } from 'lucide-react'
 import { PageProps, Tasks } from '@/types'
 import { Button } from '@/components/Atoms'
-import { Input, Radio, Textarea } from '@/components/Molecules'
+import { Checkbox, Input, Radio, Textarea } from '@/components/Molecules'
 
 export default function Page({ params }: PageProps) {
   const subTaskName = useRef<HTMLInputElement>(null)
@@ -102,26 +102,25 @@ export default function Page({ params }: PageProps) {
               {fields.map((f, index) => (
                 <li
                   key={f.id}
-                  className="flex w-full gap-1 px-4 py-2 hover:bg-neutral-100 dark:shadow-neutral-900 dark:hover:bg-dark-500"
+                  className="flex w-full items-center gap-1 px-4 py-2 hover:bg-neutral-100 dark:shadow-neutral-900 dark:hover:bg-dark-500"
                 >
-                  <input
-                    type="checkbox"
+                  <Checkbox
+                    cbLabel={f.title}
                     checked={f.isCompleted}
-                    name={f.title}
-                    id={f.title}
+                    id={f.id}
                     ref={subTaskCompleted}
                     onChange={({ target }) => {
                       update(index, { ...f, isCompleted: target.checked })
                     }}
                   />
-                  <label htmlFor={f.title}>{f.title}</label>
-                  <button
-                    onClick={() => remove(index)}
+                  <Button
                     type="button"
-                    className="ml-auto p-1 text-xs font-semibold leading-none text-red-500"
+                    onClick={() => remove(index)}
+                    className="ml-auto text-red-500"
+                    color="iconSm"
                   >
-                    x
-                  </button>
+                    <X size={12} />
+                  </Button>
                 </li>
               ))}
             </ul>
