@@ -15,5 +15,5 @@ export interface Tasks extends TaskBase {
 }
 
 export interface PageProps {
-  params: { action: string }
+  params: { action: string[] }
 }

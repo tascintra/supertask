@@ -62,8 +62,8 @@ export default function Page({ params }: PageProps) {
           />
         </Link>
         <h3 className="mt-2 text-center text-3xl font-semibold">
-          {params.action === 'create' && 'Create new task'}
-          {params.action === 'edit' && 'Edit task'}
+          {params.action.includes('create') && 'Create new task'}
+          {params.action.includes('edit') && 'Edit task'}
         </h3>
       </header>
       <section className="h-full px-5">
@@ -154,8 +154,8 @@ export default function Page({ params }: PageProps) {
             color="confirm"
             className="mx-auto mb-5 mt-auto max-w-[224px] md:mt-7"
           >
-            {params.action === 'create' && 'Add task'}
-            {params.action === 'edit' && 'Edit task'}
+            {params.action.includes('create') && 'Add task'}
+            {params.action.includes('edit') && 'Edit task'}
           </Button>
         </form>
       </section>
