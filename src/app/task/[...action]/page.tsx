@@ -1,5 +1,5 @@
 'use client'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
@@ -12,7 +12,9 @@ import { Checkbox, Input, Radio, Textarea } from '@/components/Molecules'
 export default function Page({ params }: PageProps) {
   const subTaskName = useRef<HTMLInputElement>(null)
   const subTaskCompleted = useRef<HTMLInputElement>(null)
-  const { register, control, setValue, handleSubmit } = useForm<Tasks>()
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const { register, control, setValue, getValues, handleSubmit } =
+    useForm<Tasks>()
   const { fields, append, update, remove } = useFieldArray({
     control,
     name: 'subTasks',
@@ -39,6 +41,27 @@ export default function Page({ params }: PageProps) {
     },
     [setTaskData],
   )
+
+  const handleDeleteTask = () => {
+    axios.delete(`/api/tasks/${taskId}`).then(() => {
+      router.push('/')
+    })
+  }
+
+  const handleMarkCompleted = () => {
+    const data = getValues()
+
+    if (data.subTasks?.length) {
+      data.subTasks.forEach((subTask) => {
+        subTask.isCompleted = true
+      })
+      data.isCompleted = true
+      data.progress = 100
+    }
+
+    axios.put(`/api/tasks/${taskId}`, data)
+    router.push('/')
+  }
 
   useEffect(() => {
     params.action.includes('edit') && getTaskById(taskId)
@@ -82,7 +105,7 @@ export default function Page({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex h-screen w-full max-w-2xl flex-col gap-5 divide-y divide-neutral-200 rounded-3xl border-neutral-200 py-8 dark:divide-dark-300 dark:border-dark-400 sm:my-20 sm:border sm:shadow-sm dark:sm:shadow-component md:h-fit">
-      <header className="px-5">
+      <header className="relative px-5">
         <div className="flex items-center justify-between">
           <Link href="/" className="inline-block">
             <ChevronLeft
@@ -91,9 +114,49 @@ export default function Page({ params }: PageProps) {
             />
           </Link>
           {params.action.includes('edit') && (
-            <button className="-mr-3 rounded-lg p-2 hover:bg-neutral-400/20">
-              <MoreVertical />
-            </button>
+            // <button className="-mr-3 rounded-lg p-2 hover:bg-neutral-400/20 transition hover:text-primary-900">
+            //   <Trash2 />
+            // </button>
+            <>
+              <button
+                onClick={() => setMenuIsOpen(!menuIsOpen)}
+                id="dropdownMenuIconButton"
+                data-dropdown-toggle="dropdownDots"
+                className="inline-flex items-center rounded-lg p-2 text-center text-sm font-medium hover:bg-neutral-100 focus:outline-none focus:ring-4 focus:ring-gray-50 dark:bg-inherit dark:text-neutral-200 dark:hover:bg-dark-600 dark:focus:ring-dark-600"
+                type="button"
+              >
+                <MoreVertical />
+              </button>
+
+              {menuIsOpen && (
+                <div
+                  id="dropdownDots"
+                  className="absolute right-5 top-12 z-10 w-44 divide-y divide-neutral-100 rounded-lg bg-white shadow dark:divide-dark-300 dark:bg-dark-400 dark:shadow-neutral-900"
+                >
+                  <ul
+                    className="py-2 text-sm"
+                    aria-labelledby="dropdownMenuIconButton"
+                  >
+                    <li>
+                      <button
+                        onClick={handleMarkCompleted}
+                        className="block w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-dark-500 dark:hover:text-white"
+                      >
+                        Mark as completed
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={handleDeleteTask}
+                        className="block w-full px-4 py-2 text-left hover:bg-neutral-100 dark:hover:bg-dark-500 dark:hover:text-white"
+                      >
+                        Delete task
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </>
           )}
         </div>
         <h3 className="mt-2 text-center text-3xl font-semibold">
