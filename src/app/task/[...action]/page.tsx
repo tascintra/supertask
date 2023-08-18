@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import { useFieldArray, useForm } from 'react-hook-form'
-import { ChevronLeft, X } from 'lucide-react'
+import { ChevronLeft, MoreVertical, X } from 'lucide-react'
 import { PageProps, Tasks } from '@/types'
 import { Button } from '@/components/Atoms'
 import { Checkbox, Input, Radio, Textarea } from '@/components/Molecules'
@@ -18,6 +18,7 @@ export default function Page({ params }: PageProps) {
     name: 'subTasks',
   })
   const router = useRouter()
+  const taskId = params.action.slice(-1).toString()
 
   const setTaskData = useCallback(
     (data: Tasks) => {
@@ -30,16 +31,18 @@ export default function Page({ params }: PageProps) {
     [setValue],
   )
 
-  function getTaskById(id: string) {
-    axios.get(`/api/tasks/${id}`).then(({ data: { task } }) => {
-      setTaskData(task)
-    })
-  }
+  const getTaskById = useCallback(
+    (id: string) => {
+      axios.get(`/api/tasks/${id}`).then(({ data: { task } }) => {
+        setTaskData(task)
+      })
+    },
+    [setTaskData],
+  )
 
   useEffect(() => {
-    params.action.includes('edit') &&
-      getTaskById(params.action.slice(-1).toString())
-  })
+    params.action.includes('edit') && getTaskById(taskId)
+  }, [taskId, params.action, getTaskById])
 
   const handleSubTasks = () => {
     subTaskName.current?.value &&
@@ -69,20 +72,30 @@ export default function Page({ params }: PageProps) {
       data.isCompleted = false
       data.progress = 0
     }
-    console.log('data', data)
-    axios.post('/api/tasks', data)
+
+    if (params.action.includes('create')) axios.post('/api/tasks', data)
+
+    if (params.action.includes('edit')) axios.put(`/api/tasks/${taskId}`, data)
+
     router.push('/')
   }
 
   return (
     <main className="mx-auto flex h-screen w-full max-w-2xl flex-col gap-5 divide-y divide-neutral-200 rounded-3xl border-zinc-200 py-8 dark:divide-dark-300 sm:my-20 sm:border sm:shadow-sm md:h-fit">
       <header className="px-5">
-        <Link href="/" className="inline-block">
-          <ChevronLeft
-            size={48}
-            className="-ml-3 rounded-lg stroke-primary-900 hover:bg-neutral-400/20"
-          />
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link href="/" className="inline-block">
+            <ChevronLeft
+              size={48}
+              className="-ml-3 rounded-lg stroke-primary-900 hover:bg-neutral-400/20"
+            />
+          </Link>
+          {params.action.includes('edit') && (
+            <button className="-mr-3 rounded-lg p-2 hover:bg-neutral-400/20">
+              <MoreVertical />
+            </button>
+          )}
+        </div>
         <h3 className="mt-2 text-center text-3xl font-semibold">
           {params.action.includes('create') && 'Create new task'}
           {params.action.includes('edit') && 'Edit task'}
