@@ -104,7 +104,7 @@ export default function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="mx-auto flex h-screen w-full max-w-2xl flex-col gap-5 divide-y divide-neutral-200 rounded-3xl border-neutral-200 py-8 dark:divide-dark-300 dark:border-dark-400 sm:my-20 sm:border sm:shadow-sm dark:sm:shadow-component md:h-fit">
+    <main className="mx-auto flex h-screen w-full max-w-2xl flex-col gap-5 divide-y divide-neutral-200 rounded-3xl border-neutral-200 py-8 dark:divide-dark-300 dark:border-dark-400 dark:shadow-neutral-900 sm:my-20 sm:border sm:shadow-md dark:sm:shadow-component md:h-fit">
       <header className="relative px-5">
         <div className="flex items-center justify-between">
           <Link href="/" className="inline-block">

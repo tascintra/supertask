@@ -38,7 +38,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="mx-auto flex h-screen w-full max-w-2xl flex-col justify-between divide-y divide-neutral-200 rounded-3xl border-neutral-200 dark:divide-dark-300 dark:border-dark-400 sm:my-20 sm:border sm:shadow-sm md:h-full md:min-h-[888px]">
+    <main className="mx-auto flex h-screen w-full max-w-2xl flex-col justify-between divide-y divide-neutral-200 rounded-3xl border-neutral-200 dark:divide-dark-300 dark:border-dark-400 dark:shadow-neutral-900 sm:my-20 sm:border sm:shadow-md md:h-full md:min-h-[888px]">
       <Header />
       <section className="mb-auto flex h-full w-full flex-col items-center gap-3 p-5">
         <div className="flex w-full items-center justify-between">
