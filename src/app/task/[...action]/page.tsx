@@ -114,9 +114,6 @@ export default function Page({ params }: PageProps) {
             />
           </Link>
           {params.action.includes('edit') && (
-            // <button className="-mr-3 rounded-lg p-2 hover:bg-neutral-400/20 transition hover:text-primary-900">
-            //   <Trash2 />
-            // </button>
             <>
               <button
                 onClick={() => setMenuIsOpen(!menuIsOpen)}
