@@ -28,7 +28,7 @@ A task management app created during a test code.
 </p>
 
 ## 🏆 The challenge
-The challenge was to develop a task management app for a busy professional that sttugles to stay organized. The app must be user-friendly, have a visual appealing interface and the interface should addapt to different screen sizes and devices.
+The challenge was to develop a task management app for a busy professional that struggles to stay organized. The app must be user-friendly, have a visual appealing interface and the interface should addapt to different screen sizes and devices.
 
 Users should be able to:
 
@@ -58,7 +58,7 @@ This project was built using following tools:
 ## 💻 Project
 
 ### Figma design
-A figma project was created to define the app design with project colors, components and wireframes. The Figma project can be accessed through this [link](https://www.figma.com/file/vpm63osa51ZYTsKe3DTWGq/SuperTask?type=design&node-id=9%3A56&mode=design&t=uvf7PkgPu7YUGUhX-1) (you'll need a Figma account).
+A figma project was created to define the app design with project colors, typography, spacing, components and wireframes. The Figma project can be accessed through this [link](https://www.figma.com/file/vpm63osa51ZYTsKe3DTWGq/SuperTask?type=design&node-id=9%3A56&mode=design&t=uvf7PkgPu7YUGUhX-1) (you'll need a Figma account).
 ![Figma wireframes](./public/figma-wireframe.png)
 
 #### Project demonstration
@@ -67,7 +67,7 @@ https://github.com/tascintra/supertask/assets/107153161/1b230722-0925-468e-aeac-
 
 
 ### Tailwind
-UI components were created using Tailwind and tailwind-variants which is a lib to help building variants (like is was introduced with Stitches and Emotion) for components to provide code and style reusability. The project also has Dark Mode wich was implemented with Tailwind Dark Mode API and is configured to use the user's system configured theme to choose the app theme.
+UI components were created using Tailwind and tailwind-variants which is a lib to help building variants (like is was introduced with Stitches and Emotion) for components to provide code and style reusability. The project also has Dark Mode which was implemented with Tailwind Dark Mode API and is configured to use the user's system configured theme to choose the app theme.
 
 ### Next.js
 The project backend was build using Next new API Routes with app folder structure. For the front-end the Routes, Dynamic Routes, Linking and Navigation features were used.
