@@ -6,7 +6,7 @@ A task management app created during a test code.
 
 <p align="center">
   <a href="#-the-challenge">The challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-tools">Tools</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#%EF%B8%8F-tools">Tools</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>
 </p>
 
@@ -59,10 +59,15 @@ This project was built using following tools:
 
 ### Figma design
 A figma project was created to define the app design with project colors, components and wireframes. The Figma project can be accessed through this [link](https://www.figma.com/file/vpm63osa51ZYTsKe3DTWGq/SuperTask?type=design&node-id=9%3A56&mode=design&t=uvf7PkgPu7YUGUhX-1) (you'll need a Figma account).
-![Figma wireframes](./public/figma_wireframe.png)
+![Figma wireframes](./public/figma-wireframe.png)
+
+#### Project demonstration
+https://github.com/tascintra/supertask/assets/107153161/1b230722-0925-468e-aeac-793f396a50c6
+
+
 
 ### Tailwind
-UI components were created using Tailwind and tailwind-variants which is a lib to help building variants (like is was introduced with Stitches and Emotion) for components to provide code and style reusability.
+UI components were created using Tailwind and tailwind-variants which is a lib to help building variants (like is was introduced with Stitches and Emotion) for components to provide code and style reusability. The project also has Dark Mode wich was implemented with Tailwind Dark Mode API and is configured to use the user's system configured theme to choose the app theme.
 
 ### Next.js
 The project backend was build using Next new API Routes with app folder structure. For the front-end the Routes, Dynamic Routes, Linking and Navigation features were used.
@@ -76,7 +81,7 @@ Online app version: [supertask.vercel.app](https://supertask.vercel.app/)
 
 ## 👨‍💻 Continued development
 
-I have plans to improve this project, since the better code organization to adding new features as creating, linkig it with a database and manage integration with Prisma. Develop user management and login function are ideas for the near future.
+I have plans to improve this project, since the better code organization and structure to adding new features as creating and linkig it with a database and manage integration with Prisma and validations with Zod. Develop user management and login function are ideas for the near future.
 
 <br>
 
