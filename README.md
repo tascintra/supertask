@@ -6,14 +6,13 @@ A task management app created during a test code.
 
 <p align="center">
   <a href="#-the-challenge">The challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tools">Tools</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>
 </p>
 
 
 <p align="center">
   <a href="#-deploy">Deploy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#%EF%B8%8F-i-learned">Learned</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-continued-development">Continued development</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#%EF%B8%8F-author">Author</a>
 </p>
@@ -42,45 +41,42 @@ Users should be able to:
 
 <br>
 
-## 🚀 Technologies
+## 🛠️ Tools
 
-This project was built using following technologies:
+This project was built using following tools:
 
 - React
+- Next.js
 - TypeScript
 - Tailwind
-- Storybook
+- Tailwind-variants
+- React Hook Form
 - Figma
 
 <br>
 
 ## 💻 Project
 
-### A figma project was created to define the design system default components.
-![Figma web layer](./design/figma-web-layer.png)
-![Figma components layer](./design/figma-components-layer.png)
+### Figma design
+A figma project was created to define the app design with project colors, components and wireframes. The Figma project can be accessed through this [link](https://www.figma.com/file/vpm63osa51ZYTsKe3DTWGq/SuperTask?type=design&node-id=9%3A56&mode=design&t=uvf7PkgPu7YUGUhX-1) (you'll need a Figma account).
+![Figma wireframes](./public/figma_wireframe.png)
 
-### Then the Storybook was configured to document all design system components.
-![Storybook components document](./design/storybook.png)
+### Tailwind
+UI components were created using Tailwind and tailwind-variants which is a lib to help building variants (like is was introduced with Stitches and Emotion) for components to provide code and style reusability.
+
+### Next.js
+The project backend was build using Next new API Routes with app folder structure. For the front-end the Routes, Dynamic Routes, Linking and Navigation features were used.
 
 <br>
 
 ## 🌎 Deploy
-Storybook: [tascintra.github.io/design-system-lab](https://tascintra.github.io/design-system-lab)
-<br>
-React Application: [design-system-lab-tascintra.vercel.app](https://design-system-lab-tascintra.vercel.app)
-
-<br>
-
-## ✔️ I learned
-
-How componentization works in React, how to use Tailwind CSS to make style work more productive, how to make and deploy project documentation with Storybook and how to run tests using an environment with Axios.
+Online app version: [supertask.vercel.app](https://supertask.vercel.app/)
 
 <br>
 
 ## 👨‍💻 Continued development
 
-Now next goal is to improve my JavaScript skills so I can go deeper learning React.
+I have plans to improve this project, since the better code organization to adding new features as creating, linkig it with a database and manage integration with Prisma. Develop user management and login function are ideas for the near future.
 
 <br>
 
@@ -94,39 +90,3 @@ Now next goal is to improve my JavaScript skills so I can go deeper learning Rea
 #### :memo: License
 
 This project is under a MIT license.
-
-# Rocketseat - Ignite Lab Design System
-
-![Design preview for interface](./design/preview.png)
-This is a solution to the Ignite Lab Design System from Figma to React.
-
-## A figma project was created to define the design system default components.
-![Figma web layer](./design/figma-web-layer.png)
-![Figma components layer](./design/figma-components-layer.png)
-
-## Then the Storybook was configured to document all design system components.
-![Storybook components document](./design/storybook.png)
-
-# Built with
-
-This project was built using the following technologies.
-
-- React
-- Tailwind
-- Radix
-- Storybook
-
-# Links
-
-## Storybook Deploy Link
-https://tascintra.github.io/design-system-lab
-
-## React Application Deploy Link
-https://design-system-lab-tascintra.vercel.app
-
-
-# Author
-
-- LinkedIn: [linkedin.com/in/tascintra](https://www.linkedin.com/in/tascintra/)
-
-- Frontend Mentor: [frontendmentor.io/profile/tascintra](https://www.frontendmentor.io/profile/tascintra)
