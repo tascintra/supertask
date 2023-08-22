@@ -81,7 +81,7 @@ Online app version: [supertask.vercel.app](https://supertask.vercel.app/)
 
 ## 👨‍💻 Continued development
 
-I have plans to improve this project, since the better code organization and structure to adding new features as creating and linkig it with a database and manage integration with Prisma and validations with Zod. Develop user management and login function are ideas for the near future.
+I have plans to improve this project, since the better code organization and structure to adding new features as creating and linkig it with a database and manage integration with Prisma and validations with Zod. Develop user management and login function are ideas for the near future. Creating and configuring a Storybook to document components behavior and usability and much more.
 
 <br>
 
