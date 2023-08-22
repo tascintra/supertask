@@ -89,14 +89,6 @@ export default function Home() {
                           isCompleted={isCompleted}
                           onClick={() => router.push(`/task/edit/${id}`)}
                         />
-                        // <li
-                        //   className="h-24 w-full border bg-white"
-                        //   {...provided.draggableProps}
-                        //   {...provided.dragHandleProps}
-                        //   ref={provided.innerRef}
-                        // >
-                        //   Teste {index}
-                        // </li>
                       )}
                     </Draggable>
                   ),
