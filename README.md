@@ -7,12 +7,13 @@ A task management app created during a test code.
 <p align="center">
   <a href="#-the-challenge">The challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#%EF%B8%8F-tools">Tools</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-project">Project</a>
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-deploy">Deploy</a>
 </p>
 
 
 <p align="center">
-  <a href="#-deploy">Deploy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#%EF%B8%8F-i-learned">Learned</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-continued-development">Continued development</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#%EF%B8%8F-author">Author</a>
 </p>
@@ -82,6 +83,12 @@ Online app version: [supertask.vercel.app](https://supertask.vercel.app/)
 ## 👨‍💻 Continued development
 
 I have plans to improve this project, since the better code organization and structure to adding new features as creating and linkig it with a database and manage integration with Prisma and validations with Zod. Develop user management and login function are ideas for the near future. Creating and configuring a Storybook to document components behavior and usability and much more.
+
+<br>
+
+## ✅ I learned
+
+In this project my main learning was how to build an API with the new Next.js API Routes using the new app folder structure.
 
 <br>
 
